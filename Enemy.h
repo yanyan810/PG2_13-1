@@ -15,7 +15,7 @@ public:
 	/// </summary>
 	virtual void Draw();
 
-	static int enemyCount;
+	static int isAlive;
 
 	//変数の追加
 	int posX_;
@@ -24,7 +24,7 @@ public:
 	int speed_;
 	int radius_;
 
-	int isAlive;
+	//int isAlive;
 
 	int dx;
 	int dy;

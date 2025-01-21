@@ -7,7 +7,7 @@
 
 const char kWindowTitle[] = "LC1B_24_ミヤザワハルヒ_タイトル";
 
-int Enemy::enemyCount;
+int Enemy::isAlive;
 
 // Windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
@@ -47,7 +47,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 
 		if (keys[DIK_R] && !preKeys[DIK_R]) {
-			Enemy::enemyCount = false;
+			Enemy::isAlive = true;
 		}
 
 		player->Updata(keys);
@@ -67,17 +67,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 							player->bullet_[j]->posX, player->bullet_[j]->posY, player->bullet_[j]->radius)) {
 							enemy[i]->isAlive = false;             // 敵を倒す
 							player->bullet_[j]->isShot = false;   // 弾を消す
-							 Enemy::enemyCount = true;
+							 Enemy::isAlive = false;
 						}
 					}
 				}
 
-				if (Enemy::enemyCount) {
-					enemy[i]->isAlive = false;
-				} else
-				{
-					enemy[i]->isAlive = true;
-				}
+				
 			}
 		}
 
